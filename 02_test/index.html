@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- lang : 문서의 언어를 명시하는 속성 -->
+<html lang="ko">
+
+<head>
+  <!--  문서의 정보는 <head> 태그 안에 작성 -->
+  <!-- 사용자 눈에 보이지 않는 구조임 / 제목, 설명, 위치, 스타일 같은.-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 문서의 제목을 정의, 브라우저 탭에서 확인. -->
+  <title>석준</title>
+
+  <!-- CSS,JS 연결하기 -->
+  <!-- 외부 스타일 시트 -->
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- 링크를 걸어줘서 색깔을 변경하는 것. 위 링크방식은 상대경로 / ./를 생략해도 가능-->
+  
+  <!-- 내부 스타일 시트 -->
+  <style>
+    div{
+      text-decoration: underline;
+    }
+  </style>
+
+  <!-- 외부 스크립트 -->
+  <script src="./JS/main.js"></script>>
+  <!--  -->
+
+  <!-- 내부 스크립트 -->
+  <script> //log치면 console.log가 만들어짐.
+    console.log('내부 스트립트');
+  </script>
+</head>
+
+<body>
+  <!-- 사용자 눈에 보이는 구조는 <body> 태그 안에 작성 -->
+  <!-- 로고, 헤더, 푸터, 네비게이션, 메뉴, 버튼, 이미지 같은.  -->
+  <div>Hello World! </div>
+
+
+  <!-- 화면에 이미지 출력하기 -->
+  <!-- Quiz : 상대경로와 절대경로를 사용하여 로고 이미지 출력하기. -->
+  <img src="image/logo.png" alt="">  
+  <!-- 상대경로 -->
+  
+  <img src="/02_test/image/logo.png" alt=""> 
+  <!-- 절대경로 / '/'라는 것이 프론트에서부터 내려간다는 의미 -->
+  
+  <!-- 블로그에서 로고 이미지 따오기 -->
+  <img src="https://heropy.blog/css/images/logo.png" alt="">
+  <!-- alt :이미지가 출력되지 못하는 경우 대신 출력할 텍스트(대체 텍스트)
+    이미지 경로가 잘못되거나 네트워크가 불안정하거나 등 이미지 대신 화면에 나올 글자
+    +웹 접근성과 관련(스크린 리더가 alt 텍스트를 읽어줌)
+  -->
+
+  <!-- CSS로 배경 이미지 넣기 -->
+  <div class="logo"></div>
+  <!-- class에서 logo 라는 이름을 붙여준 것. 안붙여주면 위의 div와 겹치기에 클래스로 이름을 넣어준 것. -->
+
+  <!-- 페이지를 나누고 연결(링크) 하기 -->
+  <!-- href: 다른 페이지로 이동할 수 있는 참조가 되는 경로를 입력 -->
+  <a href="https://www.naver.com/">naver</a>
+  <a href="about/about.html">about</a>
+  <!-- index.html로 만들면 생략가능
+    브라우저가 해당 이름을 가진 파일을 우선적으로 찾아 실행하기 때문
+  -->
+  <a href="./about">about</a>
+  
+
+</body>
+
+</html>
+
+<!-- 개발자 도구 사용하기 -->
+<!-- 
+  브라우저에서 제공하는 개발자 도구를 이용해서 웹 사이트를 분석하고
+  테스트 하는 방법
+  F12
+  우클릭 -> 검사 또는 셀렉트 기능 : ctrl+Shift+C 로 분석가능
+ -->
