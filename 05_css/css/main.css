@@ -8,7 +8,10 @@ div{
   color: blueviolet;
   text-decoration: underline;
 }
-
 span{
   color: red;
+}
+
+.orange{
+  color: blue;
 }
