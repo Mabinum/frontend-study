@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 공통 스타일은 앞부분에 작성 */
+    nav{
+      padding: 20px 0;
+    }
+    ul{
+      display: flex;
+      list-style: none;
+      position: relative;
+    }
+    a{
+      width: 10px;
+      height: 10px;
+      background-color: whitesmoke;
+      /* opacity: 0.4; */
+      margin-left: 20px;
+      padding: 10px;
+      text-decoration:none;
+      color: black;
+      /* font-weight: bold; */
+    }
+    .container{
+      display: flex;
+      flex-direction: row;
+      width: 800px;
+      /* margin : 0 auto; 로 가운데 정렬이 가능함 */
+    }
+    .blog-content{
+      width: 80%;
+      height: 200px;
+    }
+    .blog-img{
+      width: 20%;
+      height: 200px;
+    }
+    .profile img{
+      width: 90px;
+      height: 90px;
+      border-radius: 45px;
+    }
+    .content-header{
+      display: flex;
+      font-size: 25px;
+    }
+    
+  </style>
+
+</head>
+<body>
+  <!-- Tip! 레이아웃을 만드는 기본
+    뭘 만들든 레이아웃은 항상 수평(행)으로 자른 후 박스부터 만들고 시작하면 됨.
+    그리고 이 박스들을 전부 <div>로 구현해 놓으면 됨(물론 시맨틱 태그도 최대한 활용).
+    그리고 안에 글 넣고 그림 넣고 하면 끝!
+  
+    이 때 <div>는 블록 요소이기 때문에 위아래로 배치
+    좌우로 나란히 배치하고 싶으면 float(👿), inline-block(😶), Flexbox(😄)
+  -->
+
+  <!-- navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="">영화</a></li>
+      <li><a href="">맛집</a></li>
+      <li><a href="">IT</a></li>
+      <li><a href="">컴퓨터</a></li>
+    </ul>
+  </nav>
+  <!-- blog list -->
+  <div style="display: flex; justify-content: center;">
+    <div class="container">
+      <div class="blog-content">
+        <div class="content-header">
+          <!-- 프로필 이미지 -->
+          <div class="profile" style="margin-right: 10px;">
+            <img src="./image/서강준.jpg" alt="프로필사진">
+          </div>
+          <div class="작성자,시간" style="margin: auto 0;">
+            <!-- 작성자랑 시간을 p,h4로 설정하셨는데 이러면 margin
+                상쇄가 일어나기에 이럴때 하나의 p에 margin을 설정함
+            -->
+            <!-- 작성자 -->
+            <div style="font-weight: bold;">김석준</div>
+            <!-- 시간 -->
+            <div>1시간 전</div>
+          </div>
+        </div>
+        <div class="content-body">
+          <!-- 글제목 -->
+          <h2>나 서강준이 불렀능가?</h2>
+          <!-- 글내용 -->
+          <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum ullam quos in, alias eaque reprehenderit quia. Iste, sed qui. Fugiat nam odit quo sapiente reiciendis dolorum laudantium, deserunt aliquam nostrum?</div>
+        </div>
+      </div>
+      <!-- 샘플 이미지 -->
+      <div class="blog-img" >
+        <img src="image/서강준.jpg" alt="이미지" style="width: 100%;">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

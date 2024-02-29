@@ -68,12 +68,55 @@
       height: 3000px;
       position: static;
     }
+
+    .nav-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* space-between 도 가능하지만 제목과 메뉴사이에 div 하나 넣어서 flex-grow : 1; 을 넣어줘서 공백을 채우는 방법도 있음. */
+
+    .menu{
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      column-gap: 10px;
+    }
+    /* 
+    .menu-item+.menu-item{
+      margin-left: 10px;
+    }
+    */
+
+
+    /* 메뉴 항목 사이에 간격을 넣는 방법(2가지) */
+    /*1) margin
+      2) gap(in Flexbox)
+    */
+
+  
   </style>
 
 
 
 </head>
 <body>
+  <!-- flex 네비게이션 -->
+  <nav class="nav-container">
+    <h1>Shoes Shop</h1>
+    <!-- 로고와 메뉴 사이를 띄우는 방법(2가지)
+      1) justify-content: space-between;
+      2) flex-grow: 1;
+    -->
+    <!-- <div style="flex-grow: 1;"></div> -->
+    <ul class="menu">
+      <li class="menu-item">Products</li>
+      <li class="menu-item">Services</li>
+    </ul>
+  </nav>
+
+
   <div class="main-background">
     <h4 class="main-title">Buy our excellent shoes!</h4>
     <p class="main-content">
