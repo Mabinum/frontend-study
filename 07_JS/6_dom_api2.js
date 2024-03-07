@@ -1,4 +1,4 @@
-// HTML에서 해당 요소를 검색하여 찾은 모든 요소들을 반환
+// HTML에서 해당 요소를 검색하여 찾은 모든 요소들을 객체로 반환
 const boxEls = document.querySelectorAll('.box');
 console.log(boxEls); // 요소들의 리스트가 반환됨 
 // => 앞에서 사용한 DOM API들을 바로 쓸 수가 없음.
@@ -8,7 +8,6 @@ console.log(boxEls); // 요소들의 리스트가 반환됨
 // 처리 함수 작성 시 매개변수(현재 꺼내온 요소, 요소의 인덱스) <= 순서가 중요!!
 boxEls.forEach(function (boxEl,index){
   console.log(index,boxEl);
-
   boxEl.classList.add(`order-${index + 1}`);
 });
 
