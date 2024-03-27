@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제3
+    // 초등학교에서 1학년부터 6학년까지 중간고사 시험을 보았습니다. 
+    // 학년과 점수를 입력 받은 후,
+    // 1~3학년은 60점 이상이면 합격, 그 외의 학년은 70점 이상이면 합격 처리 후 
+    // 각각 "합격"과 "불합격"을 브라우저에 출력하세요.
+    // (점수가 0미만 100초과이면 "에러입니다." 라는 alert창을 띄우세요.)
+
+    const 학년 = prompt('당신의 학년은 몇학년입니까? 숫자로 입력해주세요');
+    const 점수 = prompt('당신의 점수는 몇점입니까? 숫자로 입력해주세요');
+
+    if (학년 <=3 && 학년 >= 1){
+      if(점수 >= 60 && 점수 <=100){
+        document.write('합격입니다','<br>');
+      } else if (점수 < 60 && 점수 >=0) { 
+        document.write('불합격입니다');
+      } else {
+        alert('에러입니다');
+      }
+    } else if(학년 <=6 && 학년 >= 4) {
+      if(점수 >= 70 && 점수 <=100){
+        document.write('합격입니다','<br>');
+      } else if (점수 < 70 && 점수 >=0) { 
+        document.write('불합격입니다');
+      } else {
+        alert('에러입니다');
+      }
+    } else {
+      alert('에러입니다');
+    }
+    // 풀이3
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
