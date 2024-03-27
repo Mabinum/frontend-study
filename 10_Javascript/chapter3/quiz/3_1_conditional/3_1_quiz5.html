@@ -14,9 +14,6 @@
     // 주의! 덧셈을 하거나 문자끼리 비교를 피하려면 숫자로 변환해 줄 것!!
     //'11' > '2' => false
     //'11' > 2 => true
-    // const num1 = Number(prompt('정수1 입력', '0'));
-    // const num2 = Number(prompt('정수2 입력', '0'));
-    // const num3 = Number(prompt('정수3 입력', '0'));
 
     // if (num1 > num2){
     //   if(num2 > num3){
@@ -44,16 +41,25 @@
     //   }
     // }
 
-    let 최댓값 = -1/0;
-    if(최댓값 < num1){
-      최댓값 = num1;
-      if(최댓값 < num2){
-        최댓값 = num2;
-      }
-    }
-    document.write(최댓값);
+    const num1 = Number(prompt('정수1 입력', '0'));
+    const num2 = Number(prompt('정수2 입력', '0'));
+    const num3 = Number(prompt('정수3 입력', '0'));
 
+    // let 최댓값;
+    // if(num1>num2) 최댓값=num1; else 최댓값=num2;
+    // if(최댓값>num3) document.write('최댓값은: ' + 최댓값,'<br>'); else document.write('최댓값은: ' +num3,'<br>');
 
+    // let 최솟값;
+    // if(num1>num2) 최솟값=num2; else 최솟값=num1;
+    // if(최솟값>num3) document.write('최솟값은: ' +num3,'<br>'); else document.write('최솟값은: ' +최솟값,'<br>');
+
+    let 최댓값 = num1 > num2 ? num1 : num2;
+    최댓값 = 최댓값 > num3 ? 최댓값 : num3;
+    document.write('최댓값은: ' + 최댓값,'<br>');
+
+    let 최솟값 = num1 > num2 ? num2 : num1;
+    최솟값 = 최솟값 > num3 ? num3 : 최솟값;
+    document.write('최댓값은: ' + 최솟값,'<br>');
 
     // const 합계 = num1 + num2 + num3 ;
     // const 평균 = 합계/3; 
