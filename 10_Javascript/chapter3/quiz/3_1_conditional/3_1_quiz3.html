@@ -16,26 +16,40 @@
     const 학년 = prompt('당신의 학년은 몇학년입니까? 숫자로 입력해주세요');
     const 점수 = prompt('당신의 점수는 몇점입니까? 숫자로 입력해주세요');
 
-    if (학년 <=3 && 학년 >= 1){
-      if(점수 >= 60 && 점수 <=100){
-        document.write('합격입니다','<br>');
-      } else if (점수 < 60 && 점수 >=0) { 
-        document.write('불합격입니다');
-      } else {
-        alert('에러입니다');
-      }
-    } else if(학년 <=6 && 학년 >= 4) {
-      if(점수 >= 70 && 점수 <=100){
-        document.write('합격입니다','<br>');
-      } else if (점수 < 70 && 점수 >=0) { 
-        document.write('불합격입니다');
-      } else {
-        alert('에러입니다');
-      }
-    } else {
-      alert('에러입니다');
-    }
+    // if (학년 <=3 && 학년 >= 1){
+    //   if(점수 >= 60 && 점수 <=100){
+    //     document.write('합격입니다','<br>');
+    //   } else if (점수 < 60 && 점수 >=0) { 
+    //     document.write('불합격입니다');
+    //   } else {
+    //     alert('에러입니다');
+    //   }
+    // } else if(학년 <=6 && 학년 >= 4) {
+    //   if(점수 >= 70 && 점수 <=100){
+    //     document.write('합격입니다','<br>');
+    //   } else if (점수 < 70 && 점수 >=0) { 
+    //     document.write('불합격입니다');
+    //   } else {
+    //     alert('에러입니다');
+    //   }
+    // } else {
+    //   alert('에러입니다');
+    // }
     // 풀이3
+
+    if(점수<0 || 점수>100){
+      alert(msg);
+    } else { //점수가 0이상 100이하 
+      if(학년 >= 1 && 학년 <=3 && 점수 >=60 ||
+        학년 >=4 && 학년<=6 && 점수 >=70){
+          msg = '합격'
+        } else {
+          msg = '불합격'
+        }
+
+        document.write(msg);
+
+    }
     
   </script>
 </head>
