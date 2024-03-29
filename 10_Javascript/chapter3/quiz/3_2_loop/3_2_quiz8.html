@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+     const size = prompt("만들 사이즈를 적어주세요");
+    if(size<=0){
+      alert("사이즈를 잘못적었습니다.");
+    } else if (size>20) {
+      alert("20이하의 사이즈를 적어주세요");
+    } else { 
+
+      // 윗면
+      for(let i = 1; i<=size; i++){
+        for(let y = i; y <= size; y++){
+          document.write('&nbsp;');
+        }
+        for(let t = 1; t <= i-1; t++){
+          document.write("*");
+        }
+
+        for(let u = 1; u <= i; u++){
+          document.write("*");
+        }
+        document.write('<br>');
+      }
+
+      // 아랫면
+      for(let i = 1; i <= size-1; i++){
+        for(let y = 1; y <= i+1; y++){
+          document.write('&nbsp;');
+        }
+        for(let t = i; t <= size-2; t++){
+          document.write("*");
+        }
+
+        for(let u = i; u <= size-1; u++){
+          document.write("*");
+        }
+        document.write('<br>');
+      }
+    }
+  </script>
+</body>
+</html>
