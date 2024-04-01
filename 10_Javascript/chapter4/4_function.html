@@ -155,23 +155,23 @@
 
   // }
     
-  // function sum(num1,num2){
-  //   return num1 + num2;
-  // }
-  // const result = sum(10,20);
-  // document.write(result);
+  function sum(num1,num2){
+    return num1 + num2;
+  }
+  const result = sum(10,20);
+  document.write(result);
 
   // 여러 과목의 점수를 입력받아 평균 점수 구하기
-  // const subjects = ['국어','수학'];
-  // let sum = 0;
-  // function testAvg(arrData){
-  //   for(let i = 0; i < arrData.length; i++){
-  //     sum += Number(prompt(arrData[i]+" 점수는? " , "0"));
-  //   }
-  //   return sum / arrData.length;
-  // }
-  // document.write("평균 점수는" + testAvg(subjects) + "점 입니다");
-  // testAvg(subjects);
+  const subjects = ['국어','수학'];
+  let sum = 0;
+  function testAvg(arrData){
+    for(let i = 0; i < arrData.length; i++){
+      sum += Number(prompt(arrData[i]+" 점수는? " , "0"));
+    }
+    return sum / arrData.length;
+  }
+  document.write("평균 점수는" + testAvg(subjects) + "점 입니다");
+  testAvg(subjects);
 
   // Quiz : 이전/다음 버튼으로 이미지 넘기기
   // (위에 body 태그 참고 ***)

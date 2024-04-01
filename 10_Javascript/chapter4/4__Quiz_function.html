@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- *** -->
+  <div>
+    <p>
+      <button type="button" onclick="gallery('PREV')">이전</button>
+      <button type="button" onclick="gallery('NEXT')">다음</button>
+    </p>
+    <p>
+      <img src="images/pic_1.jpg" alt="photo" class="photo">
+    </p>
+  </div>
+
+  <script>
+    
+  // Quiz : 이전/다음 버튼으로 이미지 넘기기
+  // (위에 body 태그 참고 ***)
+  // 힌트 : img 태그를 선택 후 setattribute를 이용하여 src 속성 변경
+    let imgs = document.querySelector('.photo');
+    const PREVNEXT = ['PREV','NEXT'];
+    let u = i;
+    let i = 0;
+    // let i;
+    function gallery(arrData){ 
+    if(u>=2){
+      if(arrData[1]){
+        i++;
+        u += i;
+        imgs.setAttribute('src',"images/pic_" + u + ".jpg");
+      }
+      if(arrData[0]){
+        i--;
+        u += i;
+        imgs.setAttribute('src',"images/pic_" + u + ".jpg");
+      } 
+    } else {
+      if(arrData[1]){
+        i++;
+        u = 1 + i;
+        imgs.setAttribute('src',"images/pic_" + u + ".jpg");
+      }
+      if(arrData[0]){
+        i--;
+        imgs.setAttribute('src',"images/pic_" + i + ".jpg");
+      } 
+    } 
+    // return u;
+  }
+    gallery(PREVNEXT);
+  </script>  
+</body>
+</html>
