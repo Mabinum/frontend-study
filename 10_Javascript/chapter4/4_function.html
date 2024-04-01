@@ -13,6 +13,17 @@
   <input type="text" class="id">
   <input type="password" class="pw">
   <button type="button" class="btn-login">로그인</button>
+
+  <!-- *** -->
+  <div>
+    <p>
+      <button type="button" onclick="gallery('PREV')">이전</button>
+      <button type="button" onclick="gallery('NEXT')">다음</button>
+    </p>
+    <p>
+      <img src="images/pic_1.jpg" alt="photo" class="photo">
+    </p>
+  </div>
   <script>
     // 함수
     // 여러 실행 코드들의 묶음(그룹화)
@@ -144,10 +155,31 @@
 
   // }
     
-  function sum(num1,num2){
-    return num1 + num2;
-  }
-  const result = sum(10,20);
+  // function sum(num1,num2){
+  //   return num1 + num2;
+  // }
+  // const result = sum(10,20);
+  // document.write(result);
+
+  // 여러 과목의 점수를 입력받아 평균 점수 구하기
+  // const subjects = ['국어','수학'];
+  // let sum = 0;
+  // function testAvg(arrData){
+  //   for(let i = 0; i < arrData.length; i++){
+  //     sum += Number(prompt(arrData[i]+" 점수는? " , "0"));
+  //   }
+  //   return sum / arrData.length;
+  // }
+  // document.write("평균 점수는" + testAvg(subjects) + "점 입니다");
+  // testAvg(subjects);
+
+  // Quiz : 이전/다음 버튼으로 이미지 넘기기
+  // (위에 body 태그 참고 ***)
+  // 힌트 : img 태그를 선택 후 setattribute를 이용하여 src 속성 변경
+
+    function gallery(){
+
+    }
   </script>
 </body>
 </html>
