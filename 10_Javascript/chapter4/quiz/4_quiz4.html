@@ -17,12 +17,33 @@
 
 
     // 풀이4
-      setInterval(function printNumbers(from,to){
-        for(let i = from; from<=to; i++){
-          console.log(i);
+    // 한글로 풀이(플로우 차트)
+    // 1) 함수 printNumbers(from,to)를 선언하기
+    // 2) 1초 간격으로(setInterval(함수, 1000)) from 값을 출력시키기
+    // 3) 출력되는 숫자를 1씩 증가시키기(+1, ++)
+    // 4) to 값까지만 출력하고 멈추기(clearInterval)
+
+    // 선생님풀이
+    function printNumbers(from,to){
+      const timerId = setInterval(function(){
+        document.write(from);
+        if(from >= to){
+          clearInterval(timerId);
         }
-      }, 2000);
-      printNumbers(5, 10); // 5~10까지 1초 간격으로 출력
+        from++;
+      },1000); 
+    }
+
+    printNumbers(5,10);
+
+
+
+      // setInterval(function printNumbers(from,to){
+      //   for(let i = from; from<=to; i++){
+      //     console.log(i);
+      //   }
+      // }, 2000);
+      // printNumbers(5, 10); // 5~10까지 1초 간격으로 출력
 
     // setTimeout(() => console.log("1초 후에 실행됨"), 1000);
 
