@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제2
+    // 이름을 영문으로 입력받은 후 대문자로 바꿔 출력하고
+    // 연락처를 입력받은 후 정보가 노출되지 않도록 뒤의 네자리는 ****로 출력하세요.
+
+    let name = prompt("이름을 영문으로 입력하세요");
+    let number = prompt("연락처를 입력해주세요");
+    let name1 = `${name}`.toUpperCase();
+    document.write(name1,'<br>');
+
+    document.write(number.substr(0,7) + "****",'<br>');
+    // 풀이2
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
