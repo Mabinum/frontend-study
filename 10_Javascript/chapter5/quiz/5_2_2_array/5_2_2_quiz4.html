@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제4
+    // 배열에서 최대값, 최소값 구하기(여러 가지 방법이 존재)
+    // 힌트: for문 또는 sort() 사용
+    const points = [40, 100, 1, 5, 25, 10];
+    // const point = points.sort(function (a,b){ return b - a;});
+    // console.log(point[0]);
+    
+    let result = 0;
+    for(let i = 0; i<points.length; i++){
+      if(result<points[i]){
+        result = points[i];
+      }
+    }
+    console.log(result);
+    // 풀이4\
+
+    // (참고) ES6차 spread 연산자
+    document.write(`최댓값 : ${MAth.max(...points)}`);
+    document.write(`최솟값 : ${MAth.min(...points)}`);
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
