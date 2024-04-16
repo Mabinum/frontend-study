@@ -31,12 +31,13 @@
     // // 발견하지 못하면 -1을 반환
     document.write('<h4>문자열 검색</h4>');
     let str = 'Please locate gggggg where "locate" occurs!';
-    let pos = str.indexOf('locate');
+    let pos = str.indexOf('"locate"');
     document.write(pos,'<br>');
+    console.log(pos,'<br>');
     
     //  // 2) lastIndexOf()
     // // 문자열 안에 특정 문자열이 존재하는지를 찾는 것은 동일
-    // // 찾고자 하는 문자열이 둘 이상 발견되면 제일 마지막에 발견된 문자열의 index를 반환(문자열 끝에서부터 검색)
+    // // 찾고자 하는 문자열이 둘 이상 발견되면 제일 마지막에 발견된 문자열의3 index를 반환(문자열 끝에서부터 검색)
     // // 발견하지 못하면 -1을 반환
     pos = str.lastIndexOf('"locate"');
     // let pos = str.indexOf('"locate"');
@@ -44,10 +45,10 @@
 
     // // 검색 시작 위치(index) 지정 가능
 
-    // pos = str.indexOf('locate',15); //15번째 index부터 찾기 시작
-    // document.write(pos,'<br>');
-    // pos = str.lastIndexOf('locate',15);
-    // document.write(pos,'<br>');
+    pos = str.indexOf('locate',27); //15번째 index부터 찾기 시작
+    document.write(pos,'<br>');
+    pos = str.lastIndexOf('locate',15);
+    document.write(pos,'<br>');
 
     // // (ES6차) includes()
     // // 지정된 문자열이 포함된 경우 true를 반환
@@ -58,36 +59,36 @@
     // pos = str.includes('locate',29);
     // document.write(pos,'<br>');
 
-    // // 실습: 사용자로부터 입력받은 이메일 주소 유효성 검사
-    // // 정규표현식을 안쓰는 경우(실무에서는 정규식 사용!!)
-    // document.write("======================",'<br>');
-    // document.write('<h4>실습: 이메일 주소 유효성 검사</h4>');
-    // // const userEmail = prompt('당신의 이메일 주소는?');
-    // const arrUrl = ['.co.kr','.com','.net','.or.kr','.go.kr'];
+    // 실습: 사용자로부터 입력받은 이메일 주소 유효성 검사
+    // 정규표현식을 안쓰는 경우(실무에서는 정규식 사용!!)
+    document.write("======================",'<br>');
+    document.write('<h4>실습: 이메일 주소 유효성 검사</h4>');
+    const userEmail = prompt('당신의 이메일 주소는?');
+    const arrUrl = ['.co.kr','.com','.net','.or.kr','.go.kr'];
 
-    // let check1 = false;
-    // let check2 = false;
+    let check1 = false;
+    let check2 = false;
 
-    // // if(userEmail.indexOf('@') > 0){ //@가 있는지 검사
-    // //   check1 = true;
-    // //   // document.write(check1);
-    // // }
-    // // for(let i = 0; i < arrUrl.length; i++){
-    // //   if(userEmail.indexOf ( arrUrl[i] ) > 0){ //도메인 검사
-    // //     check2 = true; 
-    // //     break;
-    // //   }
-    // // }
+    if(userEmail.indexOf('@') > 0){ //@가 있는지 검사
+      check1 = true;
+      // document.write(check1);
+    }
+    for(let i = 0; i < arrUrl.length; i++){
+      if(userEmail.indexOf ( arrUrl[i] ) > 0){ //도메인 검사
+        check2 = true; 
+        break;
+      }
+    }
 
-    // // if(check1&&check2){
-    // //   document.write(userEmail,'<br>')
-    // // } else {
-    // //  alert('이메일 형식이 잘못되었습니다','<br>');
-    // // }
+    if(check1&&check2){
+      document.write(userEmail,'<br>')
+    } else {
+     alert('이메일 형식이 잘못되었습니다','<br>');
+    }
 
-    // // (참고) 정규 표현식(정규식)
-    // // 문자열에서 특정 문자 조합을 찾기 위한 패턴
-    // // 주로 회원가입시 유효성 검사(패스워드.이메일,전화번호 포맷 검증 등)에 사용
+    // (참고) 정규 표현식(정규식)
+    // 문자열에서 특정 문자 조합을 찾기 위한 패턴
+    // 주로 회원가입시 유효성 검사(패스워드.이메일,전화번호 포맷 검증 등)에 사용
     
     // // 4)slice()
     // // 시작위치와 종료 위치를 주면 , 문자열에서 해당 부분을 잘라내서 반환

@@ -22,15 +22,12 @@
     console.log(greeting2);
 
     // 선언문
-    function a () {
+    // function a () {
 
-    }
+    // }
 
     // 표현식
-    const b = function (){
-
-    };
-
+    
     // 2. 표현식 삽입
     // ES5
     var exp1 = 1;
@@ -71,7 +68,7 @@ myname is goni
     let e = 'Kim';
 
     // 예상 결과를 얻기 위해 다음 코드를 수정해보자.
-    let result1 = '';
+    let result1 = `${a} ${c} ${d} ${b} ${e}`;
     
     console.log(result1);
     // 예상 결과: Hello, my name is Kim
@@ -85,7 +82,11 @@ myname is goni
     let z = 'equals';
 
     // 다음 코드에 템플릿 리터럴을 사용해보자.
-    let result2 = v + ' ' + w + ' ' + x + ' ' + y + ' ' + z;
+    // let result2 = v + x;
+    // let result2 = v + x + w + 'x ' + x + ' ' + y + ' ' + z;
+    // let result2 = v + ' ' + x + ' ' + w + ' ' + z + ' ' + y;
+    let result2 = `${v} ${x} ${w} ${z} ${y}`;
+    
     
     console.log(result2);
     // 1 plus 2 equals 3
@@ -93,9 +94,9 @@ myname is goni
     // 4.3
     // 템플릿 리터럴을 사용하여 다음 코드를 리팩터링하자.
     // 다음 코드에 템플릿 리터럴을 사용해보자.
-    let str = 'this is a very long text\n' + 
-    'a very long text';
-    
+    // let str = 'this is a very long text\n' + 
+    // 'a very long text';
+    let str = `this is a very long text\na very long text`;
     console.log(str);
     // this is a very long text
     // a very long text

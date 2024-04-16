@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 새로운 문자열 메소드
+
+    // 1. startsWith()
+    // 전달한 값으로 문자열이 시작하는지 확인.
+    const code = 'ABCDEF';
+
+    console.log(code.startsWith('ABC'));
+    console.log(code.startsWith('abc'));
+    console.log(code.startsWith('ABC'));
+    console.log(code.startsWith('abc')); //검사 시작점 지점
+
+    // 사용자가 입력한 웹사이트 주소가 "http"로 시작하는지 확인하고자 할 때
+    const url = 'http://website.com';
+    if(url.startsWith('http://') || url.startsWith('https://')){
+      console.log('올바른 형식의 웹사이트 url');
+    } else {
+      console.log('잘못된 형식의 웹사이트 url');
+    }
+
+
+    // 2. endsWith()
+    // 전달한 값으로 문자열이 끝나는지 확인.
+    console.log(code.endsWith('DDD'));
+    console.log(code.endsWith('def'));
+    console.log(code.endsWith('DEF'));
+    console.log(code.endsWith('DE',5));
+    // 문자열의 얼마만큼만을 확인할지 길이 지정.
+    // 첫 6개 문장인 'ABCDEF'만을 고려
+
+    // 사용자가 업로드한 파일의 확장자가 pdf인지 확인하고자 할 때
+    const file = 'abc.pdf';
+    if(file.endsWith('.pdf')){
+      console.log('pdf 파일');
+    } else {
+      console.log('다른 형식의 파일');
+    }
+
+
+    // 3. includes()
+    // 전달한 값이 문자열에 포함되어 있는지 확인.
+    console.log(code.includes('ABB'));
+    console.log(code.includes('ABC'));
+    console.log(code.includes('A'));
+
+    // 4. repeat()
+    // 문자열을 지정한 횟수만큼 반복
+    const hello = '====';
+    console.log(hello.repeat(10));
+
+    // 5. padStart(), padEnd()
+    // padStart(문자열의 총 길이, 추가할 문자): 문자열 앞에 지정된 문자를 지정된 길이만큼 추가
+    let text = '5';
+    console.log(text.padStart(30,'꾸물꾸물'));
+
+    // padEnd(문자열의 총 길이, 추가할 문자): 문자열 뒤에 지정된 문자를 지정된 길이만큼 추가
+    console.log(text.padEnd(30,'꾸물꾸물'));
+    
+    
+    // ====================================================================================
+    
+    // Quiz 
+    // 1. 다음 코드의 올바른 출력은?
+    const code1 = 'ABCDEFGHI';
+    code1.startsWith('EFG', 4);
+
+    // (1)
+    // 1) true
+    // 2) false
+
+    // 2. 다음 코드의 올바른 출력은?
+    const code2 = 'ABCDEF';
+    code2.endsWith('def');
+
+    // (2)
+    // 1) true
+    // 2) false
+
+    // 3. 원하는 값을 출력하도록 코드의 구현을 완성하자.
+    let str = 'Na';
+    let bat = 'BatMan';
+
+    // let batman = str.padStart(16,str) + ' ' + bat; 
+    let batman = str.repeat(8) + ' ' + bat;
+    console.log(batman);
+    // 예상 결과: NaNaNaNaNaNaNaNa BatMan
+
+    // 4. 날짜 포맷을 연(4자리)-월(2자리)-일(2자리) 형식으로 출력하도록 코드의 구현을 완성하자.
+    const theDay = new Date(2024, 8, 1);
+    const year = `${theDay.getFullYear()}`;
+    // var month = `${theDay.getMonth()+1}`;
+    const month = String(theDay.getMonth()+1).padStart(2,'0');
+    console.log(month);
+    // const month = theDay.getMonth()+1;
+    // const month = theDay.getMonth()+1;
+
+    // var day = `${theDay.getDate()}`;
+    // if(month.length === 1){
+    //   month = month.padStart(2,'0');
+    // }
+    // if(day.length === 1){
+    //   day = day.padStart(2,'0');
+    // }
+    // const Fullday = year + '-' + month + '-' + day;
+    // console.log(Fullday);
+    // 예상 결과: 2024-03-01
+
+  </script>
+</body>
+</html>
