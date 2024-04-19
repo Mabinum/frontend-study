@@ -23,18 +23,41 @@
     // 3) 출력되는 숫자를 1씩 증가시키기(+1, ++)
     // 4) to 값까지만 출력하고 멈추기(clearInterval)
 
-    // 선생님풀이
     function printNumbers(from,to){
-      const timerId = setInterval(function(){
-        document.write(from);
-        if(from >= to){
-          clearInterval(timerId);
+      let num = 0;
+      const id = setInterval(function(){
+        document.write(num++);
+        if(num>to){
+          clearInterval(id);
         }
-        from++;
-      },1000); 
+      },400)
     }
+    printNumbers(1,10);
 
-    printNumbers(5,10);
+
+
+
+
+
+
+
+
+
+
+
+
+    // // 선생님풀이
+    // function printNumbers(from,to){
+    //   const timerId = setInterval(function(){
+    //     document.write(from);
+    //     if(from >= to){
+    //       clearInterval(timerId);
+    //     }
+    //     from++;
+    //   },1000); 
+    // }
+
+    // printNumbers(5,10);
 
 
 

@@ -40,21 +40,19 @@
     // table    +=  '    <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>';
     // table    +=  '  </tr>';
 
-    // let html = '<table border="1">';
-    // let x = 1;
-    // for( let i = 1; i<=5; i++){
-    //   html += '  <tr>';
-    //   for(let u = 1; u<=5; u++){
-    //     html += '<td>' + x + '</td>';
-    //     x++
-    //   }
-    //   html += '  </tr>';
-    // }
-    // html += '</table>';
-    // document.write(html);
+    let table = '<table border="1">';
+      for(let i = 0; i<5; i++){
+        table += '  <tr>';
+          for(let n = (i*5)+1; n<=25; n++){
+            table += `<td>${n}</td>`
+            if(n%5==0) break;
+          }
+        table += '  <tr>';
+      }
+    table += '</table>';
+  document.write(table);
 
 
-    document.write("dd"+"gg");
     // 풀이7
     // 이중 for문 이용
     

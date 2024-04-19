@@ -7,7 +7,7 @@
 </head>
 <body>
   <!-- *** -->
-  <!-- <div>
+  <div>
     <p>
       <button type="button" onclick="gallery('PREV')">이전</button>
       <button type="button" onclick="gallery('NEXT')">다음</button>
@@ -15,13 +15,39 @@
     <p>
       <img src="images/pic_1.jpg" alt="photo" class="photo">
     </p>
-  </div> -->
+  </div>
 
   <script>
     
   // Quiz : 이전/다음 버튼으로 이미지 넘기기
   // (위에 body 태그 참고 ***)
   // 힌트 : img 태그를 선택 후 setattribute를 이용하여 src 속성 변경
+
+    let num = 1;
+    function gallery(a){
+      if(a == 'PREV'){
+        if(num<=1) {
+          return ;
+        }
+        num--;
+      }
+      if(a == 'NEXT'){
+        if(num >=8) {
+          return ;
+        }
+        num++;
+      }
+      const img = document.querySelector('.photo');
+      img.setAttribute('src',`images/pic_${num}.jpg`)
+    }
+
+
+  
+
+
+
+
+
     // let imgs = document.querySelector('.photo');
     // const PREVNEXT = ['0','1'];
     // let i = 0;
