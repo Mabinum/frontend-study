@@ -2,6 +2,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function Layout(props){
+  // 집가서 확인해보기
+  console.log(props);
   // Quiz : {}채우기
   return (
     <>
