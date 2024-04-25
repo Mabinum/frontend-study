@@ -1,4 +1,4 @@
-import Library from "../chapter3/3.4/library"
+import Library from "../../chapter3/3.4/library"
 import Header from "./Header";
 import Layout from "./Layout";
 import Profile from "./Profile";
@@ -24,7 +24,6 @@ function PropsUse (){
       />
     </>
   );
-  console.log(props);
 }
 
 export default PropsUse;
