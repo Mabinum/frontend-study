@@ -34,6 +34,7 @@ const styles = {
 };
 // 사용할 이미지 경로: https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png
 
+
 // 댓글들은 반복되므로 재사용 가능한 컴포넌트로 만듦.
 function Comment(props) {
   return (

@@ -10,6 +10,7 @@ import PropsUse from './chapter5/5.3/PropsUse';
 import CommentEx from './chapter5/5.6/CommentEx';
 import Comment from './chapter5/Comment';
 import CommentList from './chapter5/CommentList';
+import Counter from './chapter7/7.2/Counter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -29,8 +30,12 @@ root.render(
   //     avatarUrl: 'http://placekitten.com/200/300'    
   //   }} 
   // /> 
+  // <CommentList />
 
-  <CommentList />
+  // 7장 예제
+  <Counter />
+  // <console/>
+
 );
 // 4장 예제
 // 1초마다 Clock 컴포넌트를 렌더링 하는 코드
