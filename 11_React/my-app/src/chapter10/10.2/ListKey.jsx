@@ -13,7 +13,7 @@ function ListKey() {
 
     // 올바른 코드 - 기존 배열을 복사하여 새로운 배열(새로운 주소값)을 만들어야 함.
     setList([value, ...list]);
-    // setList([...list,value]);
+    setList([...list,value]);
     
     // input에 입력한 이전값 초기화
     setValue('');
@@ -30,6 +30,7 @@ function ListKey() {
       <button type="button" onClick={addToList}>추가</button>
       <ul>
 
+      {/* 밑의 케이스들은 권장하지 않는 케이스들을 보여주는 것임 그러므로 각자의 id값을 하는 것을 권장함. */}
         {list.map((item,index) => {
           // return <li key={index}>{lists}</li>
           // return <li key={item}>{item}</li>
