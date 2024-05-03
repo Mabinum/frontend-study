@@ -24,7 +24,12 @@ import LandingPage from './chapter9/LandingPage';
 import NumberList from './chapter10/10.1/NumberList';
 import ListKey from './chapter10/10.2/ListKey';
 import AttendanceBook from './chapter10/AttendanceBook';
-import Nameform from './chapter11/Nameform';
+import Nameform from './chapter11/11.2/Nameform';
+import EssayForm from './chapter11/11.3/EssayForm';
+import FlavorForm from './chapter11/11.3/FlavorForm';
+import Reservation from './chapter11/11.4/Reservation';
+import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
+import SignUp from './chapter11/SignUp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -69,11 +74,16 @@ root.render(
 
   // 10장 예제
     // <NumberList />
-    <ListKey />
+    // <ListKey />
     // <AttendanceBook />
 
     // 11장 예제
     // <Nameform />
+    // <EssayForm />
+    // <FlavorForm />
+    // < Reservation />
+    // <ReservationRefactoring />
+    <SignUp />
 );
 
 // 4장 예제
