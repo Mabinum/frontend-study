@@ -30,6 +30,7 @@ import FlavorForm from './chapter11/11.3/FlavorForm';
 import Reservation from './chapter11/11.4/Reservation';
 import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
 import SignUp from './chapter11/SignUp';
+import ReservationRefactoring_practice from './chapter11/11.4/ReservationRefactoring_practice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -83,7 +84,8 @@ root.render(
     // <FlavorForm />
     // < Reservation />
     // <ReservationRefactoring />
-    <SignUp />
+    <ReservationRefactoring_practice />
+    // <SignUp />
 );
 
 // 4장 예제
