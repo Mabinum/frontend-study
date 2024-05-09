@@ -55,10 +55,10 @@ function App() {
         {posts.map((post,index) => {
           return (
             <div className='list' 
-              onClick={()=> {
-                setShowPostDetail(true);
-                setCurrentIndex(index); //id값이 없으니 index로 대신함.
-              }}>
+            onClick={()=> {
+              setShowPostDetail(true);
+              setCurrentIndex(index); //id값이 없으니 index로 대신함.
+            }}>
               <h4 key={index} >{post}</h4>
               <p>2023년 01월 20일</p>
               <p>by goni kim</p>

@@ -31,6 +31,12 @@ import Reservation from './chapter11/11.4/Reservation';
 import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
 import SignUp from './chapter11/SignUp';
 import ReservationRefactoring_practice from './chapter11/11.4/ReservationRefactoring_practice';
+import TextInputWithFoucsButton from './chapter7/7.6/TextInputWithFoucsButton';
+import FileInput from './chapter11/11.3/FileInput';
+import UnitCounter from './chapter12/UnitCounter';
+import UnitCalculator from './chapter12/UnitCalculator';
+import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
+import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -57,6 +63,7 @@ root.render(
 
   // 7장 예제
   // <Counter />
+  // <TextInputWithFoucsButton />
 
   // 8장 예제
   // <Toggle />
@@ -84,8 +91,17 @@ root.render(
     // <FlavorForm />
     // < Reservation />
     // <ReservationRefactoring />
-    <ReservationRefactoring_practice />
+    // <ReservationRefactoring_practice />
     // <SignUp />
+    // <FileInput />
+
+    // 12장 예제
+    // <UnitCounter />
+    // <UnitCalculator />
+
+    // 13장 예제
+    // <WelcomeDialog />
+    <SplitPaneSection />
 );
 
 // 4장 예제
