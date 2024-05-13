@@ -43,6 +43,9 @@ import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
 import Card from './chapter13/Card';
 import ProfileCard from './chapter13/ProfileCard';
 import StyledPage from './chapter15/StyledPage';
+import Coun_prac from './chapter12/Coun_prac';
+import Calcu_prac from './chapter12/Calcu_prac';
+import Blocks from './chapter15/theme/Blocks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -102,6 +105,8 @@ root.render(
     // <FileInput />
 
     // 12장 예제
+    // <Coun_prac />
+    // <Calcu_prac />
     // <UnitCounter />
     // <UnitCalculator />
 
@@ -115,7 +120,8 @@ root.render(
 
 
     // 15장 예제
-    <StyledPage />
+    // <StyledPage />
+    <Blocks />
   );
 
 // 4장 예제
