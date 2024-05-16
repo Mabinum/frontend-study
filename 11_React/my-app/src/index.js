@@ -46,6 +46,10 @@ import StyledPage from './chapter15/StyledPage';
 import Coun_prac from './chapter12/Coun_prac';
 import Calcu_prac from './chapter12/Calcu_prac';
 import Blocks from './chapter15/theme/Blocks';
+import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
+import TimerContainer from './chapter7/7.3/ex2/TimerContainer';
+import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
+import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -73,6 +77,10 @@ root.render(
   // 7장 예제
   // <Counter />
   // <TextInputWithFoucsButton />
+  // < CounterEffect/>
+  // <TimerContainer />
+  < EffectContainer/>
+  // < EffectSummary/>
 
   // 8장 예제
   // <Toggle />
@@ -121,7 +129,7 @@ root.render(
 
     // 15장 예제
     // <StyledPage />
-    <Blocks />
+    // <Blocks />
   );
 
 // 4장 예제
