@@ -50,6 +50,7 @@ import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
 import TimerContainer from './chapter7/7.3/ex2/TimerContainer';
 import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
+import SimpleRouter from './chapter16/SimpleRouter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -79,7 +80,7 @@ root.render(
   // <TextInputWithFoucsButton />
   // < CounterEffect/>
   // <TimerContainer />
-  < EffectContainer/>
+  // < EffectContainer/>
   // < EffectSummary/>
 
   // 8장 예제
@@ -130,6 +131,9 @@ root.render(
     // 15장 예제
     // <StyledPage />
     // <Blocks />
+
+    // 16장 예제
+    <SimpleRouter/>
   );
 
 // 4장 예제

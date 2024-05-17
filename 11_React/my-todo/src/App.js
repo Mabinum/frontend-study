@@ -5,6 +5,7 @@ import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4} from "uuid";
+import Modal from "./components/Modal";
 // 패키지 설치
 // npm install styled-components styled-reset react-icons
 
@@ -42,9 +43,36 @@ function App() {
     }
   ]);
 
+  const [showModal, setShowModal] = useState(false); //모달 상태
+  const [editTodo, setEditTodo] = useState({}); //현재 수정할 todo 상태
+
+
+  const handleOpenModal = (id) => {
+    // 모달 열면서 현재 수정할 todo를 state에 저장
+    setEditTodo(todos.find(todo=> todo.id === id));
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleChange = (e) => { //제어 컴포넌트로 관리
+    setEditTodo({
+      ...editTodo,
+      text : e.target.value
+    });
+  };
+
+  const handleEdit = () => { // 실제 수정
+    setTodos(todos.map(todo=>todo.id === editTodo.id ? editTodo : todo));
+    handleCloseModal();
+  };
+
+
   // 로컬 스토리지에서 가져오기
   useEffect(() => {
-    const dbTodos = JSON.parse(localStorage.getItem('todos') || []); //초기에 'todos'가 없으면 null을 반환함
+    const dbTodos = JSON.parse(localStorage.getItem('todos')) || []; //초기에 'todos'가 없으면 null을 반환함
     setTodos(dbTodos);
   }, []);
   // id값 중복으로 안만들기 npm install uuid
@@ -122,8 +150,22 @@ function App() {
       <GlobalStyle />
       <TodoTemplate>
         <TodoInsert onInsert={handleInsert} />
-        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} />
+        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} 
+          onModal = {handleOpenModal}
+        />
       </TodoTemplate>
+
+      {/* 수정하기 모달 */}
+      {showModal && (
+      <Modal
+        title = "할 일 수정"
+        onCloseModal = {handleCloseModal}
+        onEdit = {handleEdit}
+      > 
+        <input type="text"  value={editTodo.text} onChange={handleChange}/> 
+        
+      </Modal> 
+      )}
     </>
   );
 }
