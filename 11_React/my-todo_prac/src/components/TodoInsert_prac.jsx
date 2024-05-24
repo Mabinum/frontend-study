@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {MdAdd} from "react-icons/md";
+import {MdAdd as AddIcon} from "react-icons/md";
+import { useState } from "react";
 
 const TodoInsertWrapper = styled.form`
   display: flex;
@@ -36,12 +37,43 @@ const StyledButton = styled.button`
   }
 `;
 
+
 // 새로운 항목을 입력하고 추가할 수 있는 컴포넌트
 // state를 통해 input의 상태를 관리
 function TodoInsert_prac({onInsert}) {
+  const [value, setValue] = useState('');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    //  유효성 검사 추가
+    if(!value){
+      alert('무엇을 할 지 내용을 입력하세요!');
+      return ; //함수종료
+    }
+
+    onInsert(value);
+    setValue('');
+
+
+  }
+
   return (
-    <>
-    </>
+    <TodoInsertWrapper onSubmit={handleSubmit}>
+      <StyledInput
+        type="text"
+        value={value}
+        placeholder="할 일을 입력하세요"
+        onChange={handleChange}
+      />
+      <StyledButton type="submit">
+        <AddIcon/>
+      </StyledButton>
+    </TodoInsertWrapper>
   );
 };
 

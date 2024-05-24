@@ -5,7 +5,7 @@ const TodoTemplateWrapper = styled.div`
   margin: 6rem auto 0;
   border-radius: 4px;
   overflow: hidden;
-
+  
   /* 아래와 같이 작성하면 하위(후손,자손)을 의미 */
   /* 아래처럼 컴포넌트로 따로 만들어도 되고 아니면 Sass처럼 내부에 Class를 만들어도 됨 */
 
