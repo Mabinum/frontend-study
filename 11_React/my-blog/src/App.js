@@ -27,7 +27,7 @@ function App() {
         <Route path="/post-write" element={<PostWritePage/>}/>
         {/* 여기서 :postId는 동적으로 변하는 파라미터를 위한 값 => URL 파라미터 */}
         {/* 경로에 콜론(:)을 쓰고 파라미터명을 입력하면 
-          연결된 컴포넌트에서 useParams()훅을 사용해 postId 이름으로 헤딩 값을 가져올 수 있음
+          연결된 컴포넌트에서   Params()훅을 사용해 postId 이름으로 헤딩 값을 가져올 수 있음
         */}
 
         {/* (참고) */}

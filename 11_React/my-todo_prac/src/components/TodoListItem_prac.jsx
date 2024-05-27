@@ -75,7 +75,7 @@ function TodoListItem_prac(props) {
       <Checkbox done={done} onClick={()=>onToggle(id)}>
         {done ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
       </Checkbox>
-      <Text done={done}>{text}</Text>
+      <Text done={done}>{text}gdsgsdg</Text>
       <Edit onClick={() => onModal(id)}>
         <MdEdit/>
       </Edit>

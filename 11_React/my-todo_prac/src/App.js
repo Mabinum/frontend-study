@@ -46,6 +46,7 @@ function App() {
   const [editTodo, setEditTodo] = useState({}); // 현재 수정할 todo 상태
 
   const handleOpenModal = (id) => {
+
     // 모달 열면서 현재 수정할 todo를 state에 저장
     setEditTodo(todos.find(todo => todo.id ===id ));
     setShowModal(true);
@@ -131,8 +132,8 @@ function App() {
         <TodoList_prac todos={todos} onRemove = {handleRemove} onToggle={handleToggle} onModal = {handleOpenModal}/>
       </TodoTemplate_prac>
       
-       {/* 수정하기 모달 */}
-       {showModal && (
+        {/* 수정하기 모달 */}
+        {showModal && (
         <Modal_prac
           title="할 일 수정"
           onCloseModal={handleCloseModal}

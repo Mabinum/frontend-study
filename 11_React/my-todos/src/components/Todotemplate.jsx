@@ -6,6 +6,7 @@ const TodotemplateWrapper = styled.div`
   background-color: royalblue;
   margin: 100px auto 0;
   border-radius: 3rem;
+  
 
   .header{
     width: 512px;

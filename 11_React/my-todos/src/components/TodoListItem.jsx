@@ -1,4 +1,4 @@
-import { MdCheckBox, MdCheckBoxOutlineBlank } from "react-icons/md";
+import { MdCheckBox, MdCheckBoxOutlineBlank , MdBorderColor , MdDeleteForever } from "react-icons/md";
 import styled from "styled-components";
 const TodoListItemWrapper = styled.div`
   width: 512px;
@@ -20,18 +20,31 @@ const Text = styled.div`
   font-size: 20px;
 `;
 
+const Modify = styled.div`
+
+`;
+
+const Delete = styled.div`
+
+`;
+
 function TodoListItem(props) {
-  const {todo : {id,text,done}, CheckBoxClick} = props;
+  const {todo : {id,text,done}, CheckBoxClick , DeleteBoxClick , OpenModal} = props;
 
   return (
     <TodoListItemWrapper>
       <CheckBox onClick={()=>CheckBoxClick(id)}>
         {done ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
-        <MdCheckBoxOutlineBlank/>
       </CheckBox>
       <Text>
         {text}
       </Text>
+      <Modify onClick={()=>OpenModal(id)}>
+        <MdBorderColor />
+      </Modify>
+      <Delete onClick={()=>DeleteBoxClick(id)}>
+        <MdDeleteForever />
+      </Delete>
     </TodoListItemWrapper>
   );
 };

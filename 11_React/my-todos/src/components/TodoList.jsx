@@ -6,7 +6,7 @@ const TodoListWrapper = styled.div`
   background-color: red;
 `;
 function TodoList(props) {
-  const {todos , CheckBoxClick} = props;
+  const {todos , CheckBoxClick , DeleteBoxClick , OpenModal} = props;
 
   return (
     <TodoListWrapper>
@@ -14,7 +14,9 @@ function TodoList(props) {
         return todo.text;
       })} */}
     {todos.map((todo)=>{
-      return <TodoListItem todo= {todo} CheckBoxClick={CheckBoxClick}/>;
+      return <TodoListItem todo= {todo} CheckBoxClick={CheckBoxClick}
+      DeleteBoxClick = {DeleteBoxClick} OpenModal={OpenModal}
+      />;
     })}
     </TodoListWrapper>
   );
