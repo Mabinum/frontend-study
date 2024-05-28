@@ -9,7 +9,7 @@ import { useState } from "react";
 import Modal from "./components/Modal";
 import {BrowserRouter , Routes, Route} from "react-router-dom";
 import SubPage from "./components/SubPage";
-
+import {useNavigate} from "react-router-dom";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -63,6 +63,7 @@ function App() {
     });
     copyTodos.splice(Indexs,1);
     setTodos(copyTodos);
+    
   };
 
   const [showModal, setShowModal] = useState(false);
@@ -102,7 +103,7 @@ function App() {
       />}
 
       <Routes>
-        <Route path="/next" element={<SubPage/>} />
+        <Route path="/next/:nextId" element={<SubPage todos = {todos}/>} />
       </Routes>
     </BrowserRouter>
   );

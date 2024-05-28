@@ -8,7 +8,6 @@ const TodoListItemWrapper = styled.div`
   border-bottom: 1px solid black;
   background-color: orange;
   display: flex;
-  cursor: pointer;
 `;
 
 const CheckBox = styled.div`
@@ -20,6 +19,8 @@ const Text = styled.div`
   margin-left: 0.5rem;
   /* flex: 1; //차지할 수 있는 영역 모두 차지 */
   font-size: 20px;
+  cursor: pointer;
+
 `;
 
 const Modify = styled.div`
@@ -35,17 +36,17 @@ function TodoListItem(props) {
   const navigate = useNavigate();
 
   return (
-    <TodoListItemWrapper onClick={()=>{navigate('/next')}}>
+    <TodoListItemWrapper>
       <CheckBox onClick={()=>CheckBoxClick(id)}>
         {done ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
       </CheckBox>
-      <Text>
+      <Text onClick={()=>{navigate(`/next/${id}`)}}>
         {text}
       </Text>
       <Modify onClick={()=>OpenModal(id)}>
         <MdBorderColor />
       </Modify>
-      <Delete onClick={()=>DeleteBoxClick(id)}>
+      <Delete onClick={()=>( navigate('/'), DeleteBoxClick(id))}>
         <MdDeleteForever />
       </Delete>
     </TodoListItemWrapper>
