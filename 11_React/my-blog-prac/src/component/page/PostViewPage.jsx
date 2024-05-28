@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import data from "../../data.json";
 import Button from "../ui/Button";
+import ComponentList from "../list/ComponentList";
+import TextInput from "../ui/TextInput";
 
 
 
@@ -61,14 +63,31 @@ function PostViewPage() {
   return (
     <Wrapper>
       <Container>
+
         <Button
           title = '뒤로 가기'
           onClick = { () => { navigate('/')}}
         />
+
         <PostContainer>
           <TitleText>{post.title}</TitleText>
           <ContentText>{post.content}</ContentText>
         </PostContainer>
+
+        <CommentLabel>댓글</CommentLabel>
+        <ComponentList
+          comments = {post.comments}
+        />
+        <TextInput
+          height = {40}
+          value = {comment}
+          onChange = {(e)=>setComment(e.target.value)}
+        />
+        
+        <Button
+          title = "댓글 등록"
+          onClick = {()=>navigate('/')}
+        />
       </Container>
     </Wrapper>
   );

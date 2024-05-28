@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "./Button";
 
 const TodotemplateWrapper = styled.div`
   width: 512px;
@@ -6,7 +7,7 @@ const TodotemplateWrapper = styled.div`
   background-color: royalblue;
   margin: 100px auto 0;
   border-radius: 3rem;
-  
+  /* display: flex; */
 
   .header{
     width: 512px;
@@ -22,6 +23,8 @@ const TodotemplateWrapper = styled.div`
 `;
 
 
+
+
 function Todotemplate(props) {
   const { children } = props;
 
@@ -29,6 +32,7 @@ function Todotemplate(props) {
     <TodotemplateWrapper>
       <div className="header">할일</div>
       <div className="todochildren">{children}</div>
+      {/* <Button/> */}
     </TodotemplateWrapper>
   );
 };

@@ -7,6 +7,9 @@ import TodoList from "./components/TodoList";
 import {v4 as uuidv4} from "uuid";
 import { useState } from "react";
 import Modal from "./components/Modal";
+import {BrowserRouter , Routes, Route} from "react-router-dom";
+import SubPage from "./components/SubPage";
+
 
 function App() {
   const [todos, setTodos] = useState([
@@ -86,18 +89,22 @@ function App() {
   };
 
   return (
-    <>
-    <Reset/>
-    <createGlobalStyle/>
-    <Todotemplate>
-      <TodoInsert onInsert = {handleInsert}/>
-      <TodoList todos = {todos} CheckBoxClick={CheckBoxClick} DeleteBoxClick={DeleteBoxClick} OpenModal={OpenModal}/>
-    </Todotemplate>
+    <BrowserRouter>
+      <Reset/>
+      <createGlobalStyle/>
+      <Todotemplate>
+        <TodoInsert onInsert = {handleInsert}/>
+        <TodoList todos = {todos} CheckBoxClick={CheckBoxClick} DeleteBoxClick={DeleteBoxClick} OpenModal={OpenModal}/>
+      </Todotemplate>
 
-    {showModal && <Modal CloseModal={CloseModal} editTodo={editTodo}
-      setEditTodo = {setEditTodo} handleSubmit= {handleSubmit}
-    />}
-    </>
+      {showModal && <Modal CloseModal={CloseModal} editTodo={editTodo}
+        setEditTodo = {setEditTodo} handleSubmit= {handleSubmit}
+      />}
+
+      <Routes>
+        <Route path="/next" element={<SubPage/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

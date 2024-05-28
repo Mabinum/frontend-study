@@ -1,12 +1,14 @@
 import { MdCheckBox, MdCheckBoxOutlineBlank , MdBorderColor , MdDeleteForever } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+
 import styled from "styled-components";
 const TodoListItemWrapper = styled.div`
   width: 512px;
   height: 40px;
   border-bottom: 1px solid black;
-  margin : 2px auto;
   background-color: orange;
   display: flex;
+  cursor: pointer;
 `;
 
 const CheckBox = styled.div`
@@ -30,9 +32,10 @@ const Delete = styled.div`
 
 function TodoListItem(props) {
   const {todo : {id,text,done}, CheckBoxClick , DeleteBoxClick , OpenModal} = props;
+  const navigate = useNavigate();
 
   return (
-    <TodoListItemWrapper>
+    <TodoListItemWrapper onClick={()=>{navigate('/next')}}>
       <CheckBox onClick={()=>CheckBoxClick(id)}>
         {done ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
       </CheckBox>
