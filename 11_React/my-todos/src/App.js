@@ -17,26 +17,28 @@ function App() {
       id : 1,
       text : "리액트 공부하기",
       done : false,
-      SubPage:[{
-        
-      }]
+      SubPage:[]
     },
     {
       id : 2,
       text : "HTML 공부하기",
-      done : true
+      done : true,
+      SubPage:[]
     },
     {
       id : 3,
       text : "자바스크립트 공부하기",
-      done : true
+      done : true,
+      SubPage:[]
     },
     {
       id : 4,
       text : "자바 공부하기",
-      done : false
+      done : false,
+      SubPage:[]
     }
   ]);
+
 
   const handleInsert = (text) => {
     const todo = {

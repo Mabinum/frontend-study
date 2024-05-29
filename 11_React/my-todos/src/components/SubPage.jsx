@@ -14,7 +14,7 @@ const SubPageWrapper = styled.div`
 
 
 function SubPage(props) {
-  const { todos , setTodos } = props;
+  const { todos  } = props;
   
   const {nextId} = useParams();
 
@@ -27,18 +27,20 @@ function SubPage(props) {
     setValues(e.target.value);
   };
 
+  const SearchSubPageContent = (id) => {
+    todos.find((todo)=>{
+      return todo.id == id;
+    })
+  };
+
   const handleSubClick = (nextId) => {
     const subTodo = {
       id : uuidv4(),
       text : values
     };
     setSubTodos([...subTodos,subTodo]);
-    // 에라 모르겠다
-    todos.map((todo)=>{
-      console.log(todo);
-      return todo.id == nextId && setTodos([...todo,...subTodos]);
-      })
-    // 에라 모르겠다
+
+    SearchSubPageContent.SubPage.push(subTodos)
 
   };
 
