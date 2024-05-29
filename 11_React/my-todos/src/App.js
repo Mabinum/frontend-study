@@ -16,7 +16,10 @@ function App() {
     {
       id : 1,
       text : "리액트 공부하기",
-      done : false
+      done : false,
+      SubPage:[{
+        
+      }]
     },
     {
       id : 2,
@@ -89,6 +92,7 @@ function App() {
     CloseModal();
   };
 
+  
   return (
     <BrowserRouter>
       <Reset/>
@@ -103,7 +107,7 @@ function App() {
       />}
 
       <Routes>
-        <Route path="/next/:nextId" element={<SubPage todos = {todos}/>} />
+        <Route path="/next/:nextId" element={<SubPage todos = {todos} setTodos={setTodos}/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -4,7 +4,6 @@ const SubPageListWrapper = styled.div`
   width: 190px;
   height: 10px;
   font-size: 10px;
-  background-color: blue;
 `;
 
 
