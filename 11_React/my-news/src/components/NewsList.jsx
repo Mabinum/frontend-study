@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import React from "react";
+import {PacmanLoader} from "react-spinners";
 
 import NewsItem from "./NewsItem";
+import { useParams } from "react-router-dom";
 
 
 const NewsListBlock = styled.div`
@@ -29,6 +32,10 @@ const sampleArticle = {
 
 // API를 요청하고 뉴스 데이터가 들어있는 배열을 리액트 엘리먼트 배열로 변환하여 렌더링하는 컴포넌트
 function NewsList() {
+  // useParams();
+  const { category = 'all' } = useParams();
+  console.log(category);
+
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
   // 로딩을 상태로 관리하여 API 요청이 대기중인지 판별
@@ -40,7 +47,15 @@ function NewsList() {
     const fetchNewsData = async () => {
       setLoading(true);
       try{
-        const logs = await axios.get('https://newsapi.org/v2/top-headlines?country=kr&apiKey=cd744db8d35f45859f6b88856c5e9bfe');
+        // API 호출 시 카테고리 지정하기
+        // 카테고리가 all 일때는 아무것도 들어가면 안되고, 그 외엔 해당 카테고리 값이 들어감
+        // 예시:
+        // https://newsapi.org/v2/top-headlines?country=kr&apiKey=cd744db8d35f45859f6b88856c5e9bfe
+        // https://newsapi.org/v2/top-headlines?country=kr&
+        // category=sports&apiKey=cd744db8d35f45859f6b88856c5e9bfe
+        const query = category === 'all' ? '' : `category=${category}`;
+
+        const logs = await axios.get(`https://newsapi.org/v2/top-headlines?country=kr&${query}&apiKey=cd744db8d35f45859f6b88856c5e9bfe`);
         setArticles(logs.data.articles);
         console.log(logs.data.articles);
       } catch(err){
@@ -49,7 +64,10 @@ function NewsList() {
       setLoading(false);
     };
     fetchNewsData();
-  },[]);
+  },[category]);
+  // category를 안넣어주면 렌더링이 시작할때 한번하고 끝나기에 category를 넣어줘야 
+  // 렌더링 될때마다 변할거임
+
 
   // article 값이 없을 때 렌더링 막기
   // 1)
@@ -64,7 +82,7 @@ function NewsList() {
   // 로딩중일 때 처리
   // 추천: react-spinners 또는 Lottie Files
   if(loading) {
-    return <NewsListBlock>로딩 중...</NewsListBlock>;
+    return <PacmanLoader color="#36d7b7">로딩중</PacmanLoader>;
   }
 
   return (
