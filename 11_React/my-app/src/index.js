@@ -52,6 +52,10 @@ import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
 import SimpleRouter from './chapter16/SimpleRouter';
 import ApiRequest from './chapter17/ApiRequest';
+import ReduxTestApp from './chapter18/ReduxTestApp';
+import { Provider } from "react-redux";
+import { store } from './chapter18/app/store';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -137,7 +141,15 @@ root.render(
     // <SimpleRouter/>
 
     // 17장 예제
-    <ApiRequest/>
+    // <ApiRequest/>
+
+    // 18장 예제
+    // 2. 리액트에 Redux Store 제공하기 (index.js)
+    // ReduxTextApp 컴포넌트와 그 하위 자식들은 Redux Store에 접근 가능
+    // 저장된 state들을 마음대로 꺼내 쓸 수 있음
+    <Provider store={store}>
+      <ReduxTestApp/>
+    </Provider>
   );
 
 // 4장 예제
