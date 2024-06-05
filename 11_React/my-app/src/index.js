@@ -43,7 +43,6 @@ import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
 import Card from './chapter13/Card';
 import ProfileCard from './chapter13/ProfileCard';
 import StyledPage from './chapter15/StyledPage';
-import Coun_prac from './chapter12/Coun_prac';
 import Calcu_prac from './chapter12/Calcu_prac';
 import Blocks from './chapter15/theme/Blocks';
 import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
@@ -148,6 +147,7 @@ root.render(
     // ReduxTextApp 컴포넌트와 그 하위 자식들은 Redux Store에 접근 가능
     // 저장된 state들을 마음대로 꺼내 쓸 수 있음
     <Provider store={store}>
+    {/* 여기에서 store는 store.js를 가르키는거겠지? */}
       <ReduxTestApp/>
     </Provider>
   );
