@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import {Route,Routes,BrowserRouter} from "react-router-dom";
 import Layout from "./pages/Layout";
 import Main from "./pages/Main";
+import ProductDetail from "./pages/ProductDetail";
 // app.css,index.css 지우고 app.js위에있는 기본설정들도 삭제하기
 // index.js 에서 index.css 기본설정도 삭제하기
 
@@ -46,12 +47,11 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout/>}>
         {/* index: index route(여기서는 기본 자식 라우트를 의미) */}
-        <Route path="test" element={<Main/>} />
-      </Route>
-      <Route path="/1" element={<Layout/>}>
-        {/* index: index route(여기서는 기본 자식 라우트를 의미) */}
-        <Route path="test" element={<gogo/>} />
-          
+        <Route index element={<Main/>} />
+        <Route path="detail/:productId" element={<ProductDetail/>} />
+        {/* <Route path="detail" element={<ProductDetail/>} /> */}
+        {/* Quiz : 상품별 상세페이지 여러 개를 라우팅하려면? URL 파라미터 사용 */}
+        {/* 예: /detail/1로 접속하면 productId에 1이 담기도록 설정 */}
       </Route>
     </Routes>
 
