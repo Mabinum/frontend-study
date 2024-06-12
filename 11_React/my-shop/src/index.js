@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.min.css'; //부트스트랩 css 스타일에서 복붙
 import { store } from './app/store';
+import 'react-toastify/dist/ReactToastify.css'; // ReactToastify CSS 추가
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

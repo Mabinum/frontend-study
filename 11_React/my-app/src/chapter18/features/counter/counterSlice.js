@@ -51,6 +51,7 @@ const counterSlice = createSlice(
 // 액션 객체를 만드는 함수
 // export 키워드를 붙여 다른 파일에서 불러와서 사용
 export const {increment,decrement} = counterSlice.actions;
+// ??? 여기에서의 actions가 의문 어디서 어떤것을 보고 actions로 지정해야하는지
 // 각 리듀서에 대한 액션 생성 함수들이 객체 형태로 들어있음.
 
 // 선택자 함수

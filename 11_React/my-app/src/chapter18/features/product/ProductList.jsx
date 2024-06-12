@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 function ProductList() {
   const dispatch = useDispatch();
   const nowStates = useSelector(selectnowState);
+  // ???  selector로 지정해줘야 하는 이유?
 
   const [name, setName] = useState('');
 

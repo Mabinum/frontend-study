@@ -20,6 +20,9 @@ const productSlice = createSlice({
       console.log(action.payload);
       state.selectedProduct = action.payload;
     },
+    clearSelectedProduct : (state) => {
+      state.selectedProduct = null;
+    },
   }
 });
 
@@ -32,7 +35,8 @@ const productSlice = createSlice({
 // }
 
 // 액션 생성 함수
-export const {getAllProducts} = productSlice.actions;
+console.log(productSlice);
+export const {getAllProducts , clearSelectedProduct} = productSlice.actions;
 export const {getSelectedProduct} = productSlice.actions;
 
 // 선택자 함수

@@ -1,6 +1,8 @@
 import {Button, Container, Nav, Navbar} from "react-bootstrap";
 import styled, { createGlobalStyle } from "styled-components";
 import {Route,Routes,BrowserRouter} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
+
 import Layout from "./pages/Layout";
 import Main from "./pages/Main";
 import ProductDetail from "./pages/ProductDetail";
@@ -54,6 +56,16 @@ function App() {
         {/* 예: /detail/1로 접속하면 productId에 1이 담기도록 설정 */}
       </Route>
     </Routes>
+    
+    {/* 리액트 라우터에도 있기에 토스티파이에 있는 명령어인지 확인하기 */}
+    {/* 토스트 컨테이너 하나로 재사용 */}
+    {/* 만약 다른 옵션의 토스트를 쓰고 싶다면 컨테이너 여러 개 사용 */}
+    <ToastContainer 
+      position="top-center"
+      autoClose={100}
+      pauseOnFocusLoss={false}
+      theme="dark"
+    />
 
   </>
   );
