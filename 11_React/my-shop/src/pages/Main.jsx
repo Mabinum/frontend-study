@@ -1,10 +1,10 @@
 import { useDebugValue, useEffect } from "react";
 import styled from "styled-components";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-
-import { getAllProducts, selectProductList } from "../features/product/productSlice";
+import {CircleLoader, PacmanLoader} from "react-spinners";
+import { addMoreProducts, getAllProducts, getMoreProductsAsync, selectProductList, selectStatus } from "../features/product/productSlice";
 
 // 리액트(JS)에서 이미지 파일 가져오기
 // 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
@@ -16,6 +16,7 @@ import yonexImg from "../images/yonex.jpg";
 
 
 import ProductListItem from "../components/ProductListItem";
+import { getMoreProducts } from "../api/productAPI";
 
 const MainBackground = styled.div`
   height: 500px;
@@ -33,7 +34,7 @@ const MainBackground = styled.div`
 function Main() {
   const dispatch = useDispatch();
   const productList = useSelector(selectProductList);
-
+  const status = useSelector(selectStatus); // API 요청 상태(로딩 상태)
 
   // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
@@ -48,6 +49,17 @@ function Main() {
         console.error(err);
       });
   }, []);
+
+  const handleGetMoreProducts = async() => {
+    const result = await getMoreProducts();
+    console.log(result);
+    dispatch(addMoreProducts(result));
+  };
+
+  const handleGetMoreProductsAsync = async() => {
+    dispatch(getMoreProductsAsync());
+  };
+
 
   return (
     <>
@@ -77,21 +89,50 @@ function Main() {
               <h4>상품명</h4>
               <p>상품가격</p>
             </Col> */}
+                {/* ProductListItem 컴포넌트를 만들어서 반복 렌더링으로 바꾸고 데이터 바인딩 */}
+                {/* Quiz: 
+                  1) 반복적인 상품 아이템을 src/components/ProductListItem 컴포넌트로 만들기
+                  2) productList 배열을 반복하며 ProductListItem 컴포넌트를 렌더링 하기
+                  3) 상품 정보를 props로 넘겨서 데이터 바인딩 하기
+                */}
               {productList.map((product)=>{
                 return (
                   <ProductListItem key={product.id} product = {product} />
                 );
               })}
 
+              {/* 로딩 만들기 */}
+              {/* {status === 'loading' && 
+                <div>
+                  <CircleLoader color="#d63683" />
+                </div>
+              } */}
+              {true && 
+                <CircleLoader color="#d63683" 
+                  size={50}
+                  cssOverride={
+                    {
+                      margin: '50px auto'
+                    }
+                  }
+                />
+              }
 
-            {/* ProductListItem 컴포넌트를 만들어서 반복 렌더링으로 바꾸고 데이터 바인딩 */}
-            {/* Quiz: 
-              1) 반복적인 상품 아이템을 src/components/ProductListItem 컴포넌트로 만들기
-              2) productList 배열을 반복하며 ProductListItem 컴포넌트를 렌더링 하기
-              3) 상품 정보를 props로 넘겨서 데이터 바인딩 하기
-            */}
           </Row>
         </Container>
+
+        {/* 상품 더보기 기능 만들기 */}
+        {/* 더보기 버튼 클릭 시 axios를 사용하여 데이터 요청 */}
+        {/* 받아온 결과를 전역 상태에 추가하기 위해 리듀서 추가 및 액션 생성 함수 export */}
+        {/* 스토어에 dispatch 함수로 요청(액션) 보내기 */}
+        <Button variant="secondary" className="mb-4" onClick={handleGetMoreProducts}>
+          더보기
+        </Button>
+
+        {/* thunk를 이용한 비동기 작업 처리하기 */}
+        <Button variant="secondary" className="mb-4" onClick={handleGetMoreProductsAsync}>
+          더보기닷  {status}
+        </Button>
       </section>
     </>
   );
