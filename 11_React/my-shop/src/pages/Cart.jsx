@@ -1,22 +1,12 @@
 import { Table } from "react-bootstrap";
-import { useSelector ,useDispatch} from "react-redux";
-import { decreaseCount, increaseCount, selectCartList } from "../features/cart/cartSlice";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decreaseCount, increaseCount, removeItemFromCart, selectCartList } from "../features/cart/cartSlice";
 
 function Cart() {
-  const cartList = useSelector(selectCartList);
-  console.log(cartList);
-  const formatter = new Intl.NumberFormat('ko-KR',{style: 'currency', currency: 'KRW'});
   const dispatch = useDispatch();
-  
-  const [value, setvalue] = useState('');
+  const cartList = useSelector(selectCartList);
 
-  const handleUP = () => {
-    setvalue(value++);
-  }; 
-  const handleDOWN = () => {
-    setvalue(value--);
-  }; 
+  const formatter = new Intl.NumberFormat('ko-KR');
 
   return (
     <>
@@ -28,6 +18,7 @@ function Cart() {
             <th>상품명</th>
             <th>수량</th>
             <th>가격</th>
+            <th>삭제</th>
           </tr>
         </thead>
         <tbody>
@@ -38,24 +29,46 @@ function Cart() {
             <td>199,000원</td>
           </tr> */}
 
-          {/* Quiz : cartList 반복 렌더링 및 데이터 바인딩 */}
-          {cartList.map((list,index)=>{
-            return (
-              // <tr key={index}> or
-              <tr key={list.id}>
-                <td>{index+1}</td>
-                <td>{list.title}</td>
-                <td>
-                  <button type="button" onClick={()=>dispatch(increaseCount(list.id))}>+</button>
-                  {list.count}
-                  <button type="button" onClick={()=>dispatch(decreaseCount(list.id))}>-</button>
-                </td>
-                <td>{formatter.format(list.price * list.count)}원</td>
-              </tr>
-            );
-          })}
+          {/* Quiz: cartList 반복 렌더링 및 데이터 바인딩 */}
+          {cartList.map((cart, index) => 
+            <tr key={cart.id}>
+              <td>{index + 1}</td>
+              <td>{cart.title}</td>
+              <td>
+                <button onClick={() => dispatch(decreaseCount(cart.id))}>
+                  -
+                </button>
+                {cart.count}
+                <button onClick={() => dispatch(increaseCount(cart.id))}>
+                  +
+                </button>
+              </td>
+              <td>{formatter.format(cart.price * cart.count)}원</td>
+              <td>
+                <button onClick={() => dispatch(removeItemFromCart(cart.id))}>
+                  x
+                </button>
+              </td>
+            </tr>
+          )}
+
+          {/* 합계 구하기 */}
+          <tr>
+            <th>합계</th>
+            <td></td>
+            <td></td>
+            <th>
+              {formatter.format(cartList.reduce((prev,cartItem)=>{
+                console.log(prev); // 주의 : 초기값이 없으면 배열 인덱스 0이 초기값으로 사용됨
+                return prev + (cartItem.price * cartItem.count);
+              },0))}원
+            </th>
+            <td></td>
+          </tr>
+
+
         </tbody>
-      </Table>  
+      </Table>
     </>
   );
 };

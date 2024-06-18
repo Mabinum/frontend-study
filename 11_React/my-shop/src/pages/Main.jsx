@@ -3,29 +3,24 @@ import styled from "styled-components";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import {CircleLoader, PacmanLoader} from "react-spinners";
+import { PulseLoader } from "react-spinners";
+
 import { addMoreProducts, getAllProducts, getMoreProductsAsync, selectProductList, selectStatus } from "../features/product/productSlice";
+import ProductListItem from "../components/ProductListItem";
 
 // 리액트(JS)에서 이미지 파일 가져오기
 // 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
 import yonexImg from "../images/yonex.jpg";
+import { getMoreProducts } from "../api/productAPI";
+import RecentProducts from "../components/RecentProducts";
 // 2) public 폴더 안 이미지(root 경로로 바로 접근)
 // 빌드 시 src 폴더에 있는 코드와 파일은 압축이 되지만 public 폴더에 있는 것들은 그대로 보존
 // 이미지 같은 수정이 필요없는 static 파일의 경우 public에 보관하기도 함
 
-
-
-import ProductListItem from "../components/ProductListItem";
-import { getMoreProducts } from "../api/productAPI";
-
 const MainBackground = styled.div`
   height: 500px;
-  // 1)
-  /* background-image: url(${yonexImg}); */
-
-  // 2)
-  background-image: url("/images/yonex.jpg");
-  
+  background-image: url(${yonexImg});
+  /* background-image: url("/images/yonex.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -40,7 +35,7 @@ function Main() {
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
   useEffect(() => {
     // 서버에 상품 목록 요청
-    axios.get('https://my-json-server.typicode.com/Mabinum/db-shop/products')
+    axios.get('https://my-json-server.typicode.com/geoblo/db-shop/products')
       .then((response) => {
         console.log(response.data);
         dispatch(getAllProducts(response.data));
@@ -50,16 +45,14 @@ function Main() {
       });
   }, []);
 
-  const handleGetMoreProducts = async() => {
+  const handleGetMoreProducts = async () => {
     const result = await getMoreProducts();
-    console.log(result);
     dispatch(addMoreProducts(result));
   };
 
-  const handleGetMoreProductsAsync = async() => {
+  const handleGetMoreProductsAsync = () => {
     dispatch(getMoreProductsAsync());
   };
-
 
   return (
     <>
@@ -74,70 +67,49 @@ function Main() {
           <Row>
             {/* 부트스트랩 이용한 반응형 작업 */}
             {/* md >= 768px 이상에서 전체 12등분 중 4:4:4로 보여줌 */}
-            {/* <Col md={4} sm={6}>
-              <img src="https://www.yonexmall.com/shop/data/goods/1645767865278s0.png" width="80%" />
-              <h4>상품명</h4>
-              <p>상품가격</p>
-            </Col>
-            <Col md={4} sm={6}>
-              <img src="https://www.yonexmall.com/shop/data/goods/1659329583483s0.png" width="80%" />
-              <h4>상품명</h4>
-              <p>상품가격</p>
-            </Col>
-            <Col md={4} sm={6}>
-              <img src="https://www.yonexmall.com/shop/data/goods/1667190100104s0.png" width="80%" />
-              <h4>상품명</h4>
-              <p>상품가격</p>
-            </Col> */}
-                {/* ProductListItem 컴포넌트를 만들어서 반복 렌더링으로 바꾸고 데이터 바인딩 */}
-                {/* Quiz: 
-                  1) 반복적인 상품 아이템을 src/components/ProductListItem 컴포넌트로 만들기
-                  2) productList 배열을 반복하며 ProductListItem 컴포넌트를 렌더링 하기
-                  3) 상품 정보를 props로 넘겨서 데이터 바인딩 하기
-                */}
-              {productList.map((product)=>{
-                return (
-                  <ProductListItem key={product.id} product = {product} />
-                );
-              })}
+            {/* ProductListItem 컴포넌트를 만들어서 반복 렌더링으로 바꾸고 데이터 바인딩 */}
+            {/* Quiz: 
+              1) 반복적인 상품 아이템을 src/components/ProductListItem 컴포넌트로 만들기
+              2) productList 배열을 반복하며 ProductListItem 컴포넌트를 렌더링 하기
+              3) 상품 정보를 props로 넘겨서 데이터 바인딩 하기
+            */}
+            {productList.map((product) => <ProductListItem key={product.id} product={product} />)}
 
-              {/* 로딩 만들기 */}
-              {/* {status === 'loading' && 
-                <div>
-                  <CircleLoader color="#d63683" />
-                </div>
-              } */}
-              {true && 
-                <CircleLoader color="#d63683" 
-                  size={50}
-                  cssOverride={
-                    {
-                      margin: '50px auto'
-                    }
-                  }
-                />
-              }
-
+            {/* 로딩 만들기 */}
+            {status === 'loading' &&
+              <PulseLoader
+                color="#36d7b7"
+                margin={50}
+                size={30}
+                cssOverride={{
+                  display: 'block'
+                }}
+              />
+            }
           </Row>
         </Container>
 
-        {/* 상품 더보기 기능 만들기 */}
-        {/* 더보기 버튼 클릭 시 axios를 사용하여 데이터 요청 */}
-        {/* 받아온 결과를 전역 상태에 추가하기 위해 리듀서 추가 및 액션 생성 함수 export */}
-        {/* 스토어에 dispatch 함수로 요청(액션) 보내기 */}
+        {/* 상품 더보기 기능 만들기
+          더보기 버튼 클릭 시 axios를 사용하여 데이터 요청
+          받아온 결과를 전역 상태에 추가하기 위해 리듀서 추가 및 액션 생성 함수 export
+          스토어에 dispatch로 요청(액션) 보내기
+        */}
         <Button variant="secondary" className="mb-4" onClick={handleGetMoreProducts}>
           더보기
         </Button>
 
         {/* thunk를 이용한 비동기 작업 처리하기 */}
         <Button variant="secondary" className="mb-4" onClick={handleGetMoreProductsAsync}>
-          더보기닷  {status}
+          더보기 {status}
         </Button>
       </section>
+
+      {/* 최근 본 상품 컴포넌트 */}
+      {productList.length > 0 && <RecentProducts productList={productList} /> }
+      
     </>
   );
 };
-
 
 export default Main;
 
